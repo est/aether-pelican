@@ -12,7 +12,21 @@ Aether is a Hugo theme for blogs that emphasizes motion, depth, and material as 
  - Add **math symbols and equations** to your blog posts using LaTeX
  - **Google Analytics** and **Disqus** integration
 
+
 ![Aether Hugo theme screenshot](https://raw.githubusercontent.com/josephhutch/aether/master/images/screenshot.png?_sm_au_=iVVVRRW7D405F0fN)
+
+
+## Special metadata for Pelican
+
+See [Pelican FAQ](http://docs.getpelican.com/en/3.6.3/faq.html#can-i-use-arbitrary-metadata-in-my-templates)
+
+Notable cuszomized metadata:
+
+- `latex` enable Katex support
+- `featuredimage` a cover image for a blog post
+- `featuredimage_webp` in webp format
+- `featuredimage_desc` for desc texts
+- `codehighlight` enable highlight.js
 
 ## Installation
 In the root directory of your Hugo Project, clone the aether repo into the themes directory.
