@@ -11,41 +11,38 @@
 
       {% if articles %}
       {% for article in articles_page.object_list %}
-
-      
-
-      {{- range $paginator.Pages -}}
         <a ontouchstart="cardPressed.call(this)" ontouchend="cardReleased.call(this)" ontouchmove="cardReleased.call(this)" 
           href="{{ .Permalink }}" class="card blog-card" rel="bookmark" >
-            {% if article. "featuredimage" -}}
+            {% if article.featuredimage %}
             <div class="card-img-container">
               <picture>
-                {{ if (fileExists (printf "%s/%s" "static" (replace (.Params.featuredimage) (path.Ext .Params.featuredimage) ".webp"))) -}}
-                  <source srcset="{{ replace (.Params.featuredimage) (path.Ext (.Params.featuredimage)) ".webp" | absURL }}" type="image/webp">
-                {{- end }}
-                <source srcset="{{ .Params.featuredimage | absURL }}">
-                <img src="{{.Params.featuredimage | absURL }}" class="card-img" {{ if isset .Params "featuredimagedescription" }}alt="{{.Params.featuredimagedescription}}"{{end}}>
+                {% if article.featuredimage_webp %}
+                  <source srcset="{{ article.featuredimage_webp }}" type="image/webp">
+                {% endif %}
+                <source srcset="{{ article.featuredimage }}">
+              <img src="{{ article.featuredimage_desc }}"{% if article.featuredimage_desc %} alt="{{ article.featuredimage_desc |escape }}"{% endif %}>
               </picture>
+
             </div>
-            {{- end }}
+            {% endif %}
           <article class="card-body">
-            <h2 class="card-title">{{ .Title }}</h2>
-            <p class="card-text">{{ if (isset .Params "description") }}{{ index .Params "description" }}{{ else }}{{ .Summary }}{{ end }}</p>
+            <h2 class="card-title">{{ article.title }}</h2>
+            <p class="card-text">{{ article.summary }}</p>
             <div class="card-subtext muted-text">
-              <p>Posted <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time></p>
-              {{ if (isset .Params "categories") }}<p>{{ range .Params.categories }}#{{ . }} {{ end }}</p>{{ end }}
+              <p>Posted <time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time></p>
+              {% if article.category %}<p>{{ article.category }}</p>{% endif %}
             </div>
           </article>
         </a>
-
-      {{- end }}
+        {% endif %}
+        {# @ToDo: add pages #}
     </main>
-    {{ if or ($paginator.HasPrev) ($paginator.HasNext) -}}
+    {% if articles_page.has_other_pages() %}
     <nav class="pagination-nav side-padding">
-      {{ if $paginator.HasPrev }}<a href="{{ $paginator.Prev.URL }}" class="pagination-newer">&lt; Newer Posts</a>{{ end }}
-      {{ if $paginator.HasNext }}<a href="{{ $paginator.Next.URL }}" class="pagination-older">Older Posts &gt;</a>{{ end }}
+      {% if articles_page.has_previous() %}<a href="{{ articles_previous_page.url }}" class="pagination-newer">&lt; Newer Posts</a>{% endif %}
+      {% if articles_page.has_next() %}<a href="{{ $articles_next_page.url }}" class="pagination-older">Older Posts &gt;</a>{% endif %}
     </nav>
-    {{ end -}}
-    {{ partial "scripts.html" . }}
+
+    {% include "scripts.html" %}
   </body>
 </html>
