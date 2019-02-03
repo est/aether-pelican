@@ -53,6 +53,15 @@ Aether supports a large array of favicon formats. Simply add your favicons with 
 
 PRs are welcome!
 
+## Useful links
+
+- [Pelican theme template variables](http://docs.getpelican.com/en/3.6.3/themes.html)
+- [Pelican global template variables](http://docs.getpelican.com/en/3.6.3/settings.html)
+- [Jinja2 template variables](http://jinja.pocoo.org/docs/2.10/templates/)
+- [Original HUgo aether theme demo](https://themes.gohugo.io//theme/aether/)
+- [Original theme author blogpost](https://www.joehutch.com/post/aether-theme/)
+
+
 
 ## License
 
