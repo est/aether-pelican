@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
-  {% include "head.html" %}
+  {% include "header.html" %}
   <body class="list-body">
-    {% include nav-bar.html" %}
+    {% include "nav-bar.html" %}
     <main class="card-container side-gutter">
       <header class="list-header">
         <p class="list-header-subtext">{{ SITESUBTITLE }}</p>
@@ -12,7 +12,7 @@
       {% if articles %}
       {% for article in articles_page.object_list %}
         <a ontouchstart="cardPressed.call(this)" ontouchend="cardReleased.call(this)" ontouchmove="cardReleased.call(this)" 
-          href="{{ .Permalink }}" class="card blog-card" rel="bookmark" >
+          href="{{ article.url }}" class="card blog-card" rel="bookmark" >
             {% if article.featuredimage %}
             <div class="card-img-container">
               <picture>
@@ -34,15 +34,17 @@
             </div>
           </article>
         </a>
+        {% endfor %}
         {% endif %}
         {# @ToDo: add pages #}
     </main>
     {% if articles_page.has_other_pages() %}
     <nav class="pagination-nav side-padding">
       {% if articles_page.has_previous() %}<a href="{{ articles_previous_page.url }}" class="pagination-newer">&lt; Newer Posts</a>{% endif %}
-      {% if articles_page.has_next() %}<a href="{{ $articles_next_page.url }}" class="pagination-older">Older Posts &gt;</a>{% endif %}
+      {% if articles_page.has_next() %}<a href="{{ articles_next_page.url }}" class="pagination-older">Older Posts &gt;</a>{% endif %}
     </nav>
+    {% endif %}
 
-    {% include "scripts.html" %}
+    {% include "footer.html" %}
   </body>
 </html>
