@@ -11,8 +11,9 @@
 
       {% if articles %}
       {% for article in articles_page.object_list %}
-        <a ontouchstart="cardPressed.call(this)" ontouchend="cardReleased.call(this)" ontouchmove="cardReleased.call(this)" 
-          href="{{ article.url }}" class="card blog-card" rel="bookmark" >
+
+        <!-- new article -->
+        <div ontouchstart="cardPressed.call(this)" ontouchend="cardReleased.call(this)" ontouchmove="cardReleased.call(this)" class="card blog-card">
             {% if article.featuredimage %}
             <div class="card-img-container">
               <picture>
@@ -26,17 +27,20 @@
             </div>
             {% endif %}
           <article class="card-body">
-            <h2 class="card-title">{{ article.title }}</h2>
+            <a href="{{ article.url }}"  rel="bookmark" >
+              <h2 class="card-title">{{ article.title }}</h2>
+            </a>
             <p class="card-text">{{ article.summary }}</p>
             <div class="card-subtext muted-text">
               <p>Posted <time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time></p>
               {% if article.category %}<p>{{ article.category }}</p>{% endif %}
             </div>
           </article>
-        </a>
-        {% endfor %}
-        {% endif %}
-        {# @ToDo: add pages #}
+        </div>
+
+      {% endfor %}
+      {% endif %}
+      {# @ToDo: add pages #}
     </main>
     {% if articles_page.has_other_pages() %}
     <nav class="pagination-nav side-padding">
