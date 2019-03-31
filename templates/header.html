@@ -1,9 +1,7 @@
 
-    {% block head %}
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
     <meta charset="utf-8" />
     {% if FEED_ALL_ATOM %}
     <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Full Atom Feed" />
@@ -31,7 +29,7 @@
     {% endif %}
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="{{ SITESUBTITLE }}" />
+    <meta name="description" content="{{ article.title|escape if article else SITESUBTITLE }}" />
 
 
     {# 
@@ -59,13 +57,3 @@
     {% if article and article.latex %}
     <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
     {% endif %}
-    
-    {% block bg_pattern %}
-    <style>
-      body {
-        background: #ecedef url("{{ THEME_STATIC_DIR }}/img/ignasi_pattern_s.png") repeat;
-      }
-    </style>
-    {% endblock %}
-
-    {% endblock head %}
