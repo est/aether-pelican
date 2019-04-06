@@ -18,7 +18,7 @@
       {% endblock %}
 
       {% block discussion %}
-      {% if DISQUS_SITENAME and SITEURL and article and article.status != "draft" %}
+      {% if DISQUS_SITENAME and article and article.status != "draft" %}
       {% include "disqus.html" %}
       {% endif %}
       {% endblock %}
