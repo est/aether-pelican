@@ -1,5 +1,5 @@
 body {
-    font-family: 'LatoLatinWeb', Avenir, HelveticaNeue-Light, "Helvetica Neue Light",
+    font-family: Avenir, HelveticaNeue-Light, "Helvetica Neue Light",
                  "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     color: #141823;
     font-size: 1.1em;
@@ -18,7 +18,6 @@ p {
 }
 b,
 strong {
-    font-family: 'LatoLatinWebHeavy';
     font-weight: normal;
 }
 .nav-bar {
@@ -367,7 +366,6 @@ th {
     border: thin solid #D1D1D1
 }
 th {
-    font-family: 'LatoLatinWebHeavy';
     font-weight: normal
 }
 tr:nth-child(even) td {
