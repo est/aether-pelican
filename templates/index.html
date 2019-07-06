@@ -13,7 +13,7 @@
       {% for article in articles_page.object_list %}
 
         <!-- new article -->
-        <div ontouchstart="cardPressed.call(this)" ontouchend="cardReleased.call(this)" ontouchmove="cardReleased.call(this)" class="card blog-card">
+        <div class="card blog-card">
             {% if article.featuredimage %}
             <div class="card-img-container">
               <picture>

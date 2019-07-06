@@ -221,6 +221,7 @@ strong {
 .card-text {
     margin: 1em 0;
     line-height: 1.5;
+    overflow-wrap: break-word;
 }
 .card-subtext {
     display: flex;
@@ -307,7 +308,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 img {
     display: block;
-    width: 100%;
+    max-width: 95%;
     height: auto;
     margin: 1.5em 0;
 }
@@ -333,17 +334,19 @@ li > p {
 code {
     font-family: monospace;
     padding: .2em .5em;
-    line-height: 1.5;
+    line-height: 1.1;
     border-radius: 0.3rem;
     background-color: #f5f6f7;
 }
 pre > code {
     margin: 1.5em 0;
-    display: block;
     padding: 0.5em;
-    word-break: normal;
-    overflow-x: auto;
+    display: block;
+    /*word-break: normal;
+    overflow-x: auto;*/
     color: black;
+    max-width: 100%;
+    white-space: pre-line;
 }
 hr {
     border: 0;
