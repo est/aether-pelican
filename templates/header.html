@@ -57,3 +57,11 @@
     {% if article and article.latex %}
     <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
     {% endif %}
+
+    {% block bg_pattern %}
+    <style>
+      body {
+        background: #ecedef url("{{ SITEURL }}/{{ THEME_STATIC_DIR }}/img/ignasi_pattern_s.png") repeat;
+      }
+    </style>
+    {% endblock %}
