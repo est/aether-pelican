@@ -4,6 +4,9 @@
     onload="renderMathInElement(document.body);"></script>
 {% endif %}
 <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/core.js"></script>
+<script type="text/javascript">
+    if(location.protocol === "http:") location.protocol = "https:"
+</script>
 
 {% if article and article.codehighlight %}
 <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/highlight.min.js"></script>
