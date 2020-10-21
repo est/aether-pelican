@@ -18,7 +18,7 @@ p {
 }
 b,
 strong {
-    font-weight: normal;
+    font-weight: 900;
 }
 .nav-bar {
     max-width: 50rem;
@@ -315,7 +315,7 @@ img {
 blockquote {
     border-left: 0.3em solid #D1D1D1;
     margin: 1.5em 0.8em;
-    padding: .5em 0.5em;
+    padding: 0 0.5em;
     font-style: italic;
 }
 blockquote p {
