@@ -346,7 +346,7 @@ pre > code {
     overflow-x: auto;*/
     color: black;
     max-width: 100%;
-    white-space: pre-line;
+    white-space: pre-wrap;
 }
 hr {
     border: 0;
