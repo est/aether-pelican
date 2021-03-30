@@ -7,7 +7,7 @@
 <article class="post{% if article and article.dropcase %} dropcase{% endif %}">
   <header class="post-header">
     <h1 class="post-title">{{ article.title }}</h1>
-    <p class="post-date">Posted <time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time></p>
+    <p class="post-date">📅 <time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time></p>📌 <span>{{ article.category }}</span>
   </header>
 
   {% if article and article.featuredimage %}
