@@ -9,11 +9,11 @@
     </button>
     <ul id="menu" class="hamburger-menu-overlay">
       <li><a href="{{ SITEURL }}" class="hamburger-menu-overlay-link">Home</a></li>
-      {% if DISPLAY_PAGES_ON_MENU -%}{% for pg in pages %}
+      {% if DISPLAY_PAGES_ON_MENU %}{% for pg in pages %}
         <li><a href="{{ SITEURL }}/{{ pg.url }}" class="hamburger-menu-overlay-link{% if pg == page %} active{% endif %}">{{ pg.title }}</a></li>
       {% endfor %}{% endif %}
 
-      {% if DISPLAY_CATEGORIES_ON_MENU -%}{% for cat, null in pages %}
+      {% if DISPLAY_CATEGORIES_ON_MENU %}{% for cat, null in categories %}
         <li><a href="{{ SITEURL }}/{{ cat.url }}" class="hamburger-menu-overlay-link{% if cat == category %} active{% endif %}">{{ cat }}</a></li>
       {% endfor %}{% endif %}
 
