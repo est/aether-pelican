@@ -1,5 +1,5 @@
 <nav class="nav-bar side-padding">
-  <h1 class="nav-header"><a href="{{ SITEURL }}/" class="nav-text">
+  <h1 class="nav-header"><a href="{{ SITEURL or '/' }}" class="nav-text">
     {{ SITENAME }}
   </a></h1>
   <div class="hamburger-menu">
@@ -8,7 +8,7 @@
       <span></span>
     </button>
     <ul id="menu" class="hamburger-menu-overlay">
-      <li><a href="{{ SITEURL }}" class="hamburger-menu-overlay-link">Home</a></li>
+      <li><a href="{{ SITEURL or '/' }}" class="hamburger-menu-overlay-link">Home</a></li>
       {% if DISPLAY_PAGES_ON_MENU %}{% for pg in pages %}
         <li><a href="{{ SITEURL }}/{{ pg.url }}" class="hamburger-menu-overlay-link{% if pg == page %} active{% endif %}">{{ pg.title }}</a></li>
       {% endfor %}{% endif %}

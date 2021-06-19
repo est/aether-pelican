@@ -28,7 +28,7 @@
             </div>
             {% endif %}
           <article class="card-body">
-            <a href="{{ article.url }}"  rel="bookmark" >
+            <a href="{{ SITEURL }}/{{ article.url }}"  rel="bookmark" >
               <h2 class="card-title">{{ article.title }}</h2>
             </a>
             <p class="card-text">{{ article.summary }}</p>
@@ -45,8 +45,8 @@
     </main>
     {% if articles_page.has_other_pages() %}
     <nav class="pagination-nav side-padding">
-      {% if articles_page.has_previous() %}<a href="{{ articles_previous_page.url }}" class="pagination-newer">&lt; Newer Posts</a>{% endif %}
-      {% if articles_page.has_next() %}<a href="{{ articles_next_page.url }}" class="pagination-older">Older Posts &gt;</a>{% endif %}
+      {% if articles_page.has_previous() %}<a href="{{ SITEURL }}/{{ articles_previous_page.url }}" class="pagination-newer">&lt; Newer Posts</a>{% endif %}
+      {% if articles_page.has_next() %}<a href="{{ SITEURL }}/{{ articles_next_page.url }}" class="pagination-older">Older Posts &gt;</a>{% endif %}
     </nav>
     {% endif %}
 
