@@ -352,6 +352,7 @@ code {
     line-height: 1.1;
     border-radius: 0.3rem;
     background-color: #f5f6f7;
+    white-space: pre-wrap;
 }
 pre > code {
     margin: 1.5em 0;
