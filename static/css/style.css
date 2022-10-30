@@ -378,10 +378,12 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
     margin: 1.5em 0;
+    font-size: 80%;
+    line-height: 1;
 }
 td,
 th {
-    padding: 0.5em 1em;
+    padding: 0.1em 0.3em;
     border: thin solid #D1D1D1
 }
 th {
