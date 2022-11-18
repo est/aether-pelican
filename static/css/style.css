@@ -331,7 +331,7 @@ blockquote {
     border-left: 0.3em solid #D1D1D1;
     margin: 1.5em 0.8em;
     padding: 0 0.5em;
-    font-style: italic;
+/*    font-style: italic;*/
 }
 blockquote p {
     /*display: inline;*/
