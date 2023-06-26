@@ -1,9 +1,8 @@
 {% extends "base.html" %}
 
-{% block title %}{{ article.title | escape }} - {{ SITENAME }}{% endblock %}
+{% block title %}{{ article.title | escape }} – {{ SITENAME }}{% endblock %}
+
 {% block content %}
-
-
 <article class="post{% if article and article.dropcase %} dropcase{% endif %}">
   <header class="post-header">
     <h2 class="post-title">{{ article.title }}</h2>
@@ -21,7 +20,5 @@
   {% endif %}
   
   {{ article.content }}
-
 </article>
-
 {% endblock %}
