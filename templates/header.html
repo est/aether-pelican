@@ -30,7 +30,15 @@
     <meta name="description" content="{{ article.title|escape if article else SITESUBTITLE }}" />
 
     {% if article %}
-      <link rel="canonical" href="{{ FEED_LINK }}/{{ article.url }}" />
+    <link rel="canonical" href="{{ FEED_LINK }}/{{ article.url }}" />
+    <meta property="og:url" content="{{ SITEURL }}/{{ article.url }}">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="{{ article.title | escape }}">
+    {% else %}
+    <meta property="og:url" content="{{ SITEURL }}">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{ SITENAME | escape  }}">
+    <meta property="og:description" content="{{ article.title|escape if article else SITESUBTITLE }}">
     {% endif %}
 
     <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/normalize.min.css" />
