@@ -1,6 +1,5 @@
 body {
-    font-family: Avenir, HelveticaNeue-Light, "Helvetica Neue Light",
-                 "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-family: Avenir,"Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", sans-serif;
     color: #141823;
     font-size: 1.1em;
     background-color: #ecedef;
@@ -347,7 +346,7 @@ li > p {
     margin: 0;
 }
 code {
-    font: 0.8em monospace;
+    font: 0.8em Monaco,"Lucida Console",monospace;
     padding: .2em .5em;
     line-height: 1.1;
     border-radius: 0.3rem;
