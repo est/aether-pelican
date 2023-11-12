@@ -57,11 +57,6 @@ div.div-iframe iframe{
     -webkit-user-select: none;
     user-select: none;
 }
-.hamburger-menu button:focus +.hamburger-menu-overlay {
-    display: block;
-    visibility: visible;
-    opacity: 0.9;
-}
 .hamburger-menu button {
     display: block;
     position: relative;
@@ -74,6 +69,11 @@ div.div-iframe iframe{
     z-index: 500; /* and place it over the hamburger */
     -webkit-touch-callout: none;
     cursor: pointer;
+}
+.hamburger-menu button:focus +.hamburger-menu-overlay {
+    display: block;
+    visibility: visible;
+    opacity: 0.9;
 }
 .hamburger-menu button span {
     display: block;
@@ -89,11 +89,11 @@ div.div-iframe iframe{
 .hamburger-menu button span:first-of-type {
     margin-bottom: 5px;
 }
-.hamburger-menu-open button span {
+.hamburger-menu button:focus span {
     background-color: white;
     transform: rotate(45deg) translate(3.2px , 3.2px);
 }
-.hamburger-menu-open button span:last-of-type {
+.hamburger-menu button:focus span:last-of-type {
     transform: rotate(-45deg) translate(3.2px , -3.2px);
 }
 .hamburger-menu-overlay {
@@ -116,10 +116,6 @@ div.div-iframe iframe{
 .hamburger-menu-overlay li {
     display: inline;
     margin-right: 1rem;
-}
-.hamburger-menu-open .hamburger-menu-overlay {
-    visibility: visible;
-    opacity: 0.9;
 }
 .hamburger-menu-overlay-link {
     text-decoration: none;
