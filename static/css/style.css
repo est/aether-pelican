@@ -57,6 +57,11 @@ div.div-iframe iframe{
     -webkit-user-select: none;
     user-select: none;
 }
+.hamburger-menu button:focus +.hamburger-menu-overlay {
+    display: block;
+    visibility: visible;
+    opacity: 0.9;
+}
 .hamburger-menu button {
     display: block;
     position: relative;
@@ -98,7 +103,6 @@ div.div-iframe iframe{
     top: 0;
     left: 0;
     width: 100vw;
-    height: 100%;
     z-index: 100;
     text-align: center;
     visibility: hidden;
@@ -108,6 +112,10 @@ div.div-iframe iframe{
     background-color: #000;
     opacity: 0;
     transition: visibility 0.2s ease-out, opacity 0.2s ease-out;
+}
+.hamburger-menu-overlay li {
+    display: inline;
+    margin-right: 1rem;
 }
 .hamburger-menu-open .hamburger-menu-overlay {
     visibility: visible;
