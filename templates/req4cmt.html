@@ -14,19 +14,29 @@
     async function newComment() {
       evt = this.event
       evt.preventDefault()
-      let r
+      let req
       try {
-        r = await fetch("https://c.est.im/", {
+        req = await fetch("https://c.est.im/", {
           method: "POST",
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
           },
           body: new URLSearchParams(new FormData(evt.target))
         })
-        evt.submitter.value = '⚠️✅'[r.status == 200 ]
       } catch (e) {
         console.log(e)
         evt.submitter.value = '❌'
+      }
+      let rsp
+      try {
+        rsp = await r.json()
+      } catch (e) {
+        rsp = {}
+      }
+      const is_ok = req.status == 200 && !rsp.error
+      evt.submitter.value = is_ok ? '✅' : '⚠️'
+      if (is_ok){
+        location.assign()
       }
       return false;
     }
@@ -50,7 +60,7 @@
 
       // load from github via CF
       const page_url = new URL(location.href)
-      const api = `https://c.est.im/${page_url.hostname.replace('127.0.0.1', 'blog.est.im')}${page_url.pathname}.jsonl`
+      const api = `https://c.est.im/${page_url.hostname}${page_url.pathname}.jsonl`
       fetch(api).then(x=>x.text()).then(body => {
         body.split(/\r?\n/).forEach(line=>{
           let data;
