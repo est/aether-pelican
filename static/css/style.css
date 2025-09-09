@@ -481,3 +481,11 @@ footer {
         border-radius: 0.2rem;
     }
 }
+
+#req4cmt_thread {
+    padding:0 2em 0 2em
+}
+
+#req4cmt_thread form textarea[name="content"]  {
+    width: 100%; height: 100px
+}

@@ -1,0 +1,71 @@
+<div class="comments">
+  <h2>Comments</h2><div id="req4cmt_thread">
+    <form action="https://c.est.im/" method="post" onsubmit="newComment();">
+    <input type="hidden" name="name" value="guest">
+    <input type="hidden" name="email" value="dont@spam.me">
+    <textarea name="content" placeholder="name <email@example.com> https://your-web-site.com&#10;&#10;The above header line will be loosely parsed as contact info&#10;首行输入 称呼 &lt;邮箱&gt; 网址，再换行留言"></textarea>
+    <input type="submit" value="Go">
+    </form>
+    <br/>
+    <dl>
+    </dl>
+  </div>
+  <script type="text/javascript" defer><!--
+    async function newComment() {
+      this.event.preventDefault()
+      const r = await fetch("https://c.est.im/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: new URLSearchParams(new FormData(this.target))
+      });
+      this.event.submitter.value = '⚠️✅'[r.status == 200 ]
+      return false;
+    }
+    function ne(tag, attr={}){
+      const e=document.createElement(tag)
+      if(attr.$){
+        e.textContent = attr.$
+        delete attr.$
+      }
+      Object.entries(attr).forEach(([k,v])=>e.setAttribute(k,v))
+      return e
+    }
+    const nt = document.createTextNode.bind(document)
+    function load_comments(){
+      // add hidden inputs
+      const submit = req4cmt_thread.querySelector('form input[type="submit"]')
+      'name email link'.split(' ').forEach(k=>{
+        submit.insertAdjacentElement('beforebegin', ne('input', {name: `x-${k}`, placeholder: k}));
+        submit.insertAdjacentText('beforebegin', ' ');
+      })
+
+      // load from github via CF
+      const page_url = new URL(location.href)
+      const api = `https://c.est.im/${page_url.hostname.replace('127.0.0.1', 'blog.est.im')}${page_url.pathname}.jsonl`
+      fetch(api).then(x=>x.text()).then(body => {
+        body.split(/\r?\n/).forEach(line=>{
+          let data;
+          try{
+            data = JSON.parse(line)
+          } catch(e){
+            return
+          }
+          const dt = ne('dt')
+          dt.appendChild(ne('small', {$: new Date(data.at).toLocaleString('en-CA',{hour12: false}).replace(',', '')}))
+          dt.appendChild(nt(' '))
+          if (data.link){
+            dt.appendChild(ne('a', {href: data.link, $: data.name}))
+          } else {
+            dt.appendChild(b = ne('b', {$: data.name}))
+          }
+          req4cmt_thread.appendChild(dt)
+          const dd = ne('dd', {$: data.content})
+          req4cmt_thread.appendChild(dd)
+        })
+      })
+    }
+    document.addEventListener("DOMContentLoaded", load_comments)
+  --></script>
+</div>
