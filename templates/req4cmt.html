@@ -1,9 +1,9 @@
 <div class="comments">
   <h2>Comments</h2><div id="req4cmt_thread">
     <form action="https://c.est.im/" method="post" onsubmit="newComment();">
-    <input type="hidden" name="name" value="guest">
-    <input type="hidden" name="email" value="dont@spam.me">
-    <textarea name="content" placeholder="name <email@example.com> https://your-web-site.com&#10;&#10;The above header line will be loosely parsed as contact info&#10;首行输入 称呼 &lt;邮箱&gt; 网址，再换行留言"></textarea>
+    <input type="hidden" name="name" placeholder="guest">
+    <input type="hidden" name="email" placeholder="dont@spam.me">
+    <textarea name="content"></textarea>
     <input type="submit" value="Go">
     </form>
     <br/>
@@ -12,15 +12,22 @@
   </div>
   <script type="text/javascript" defer><!--
     async function newComment() {
-      this.event.preventDefault()
-      const r = await fetch("https://c.est.im/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-        body: new URLSearchParams(new FormData(this.target))
-      });
-      this.event.submitter.value = '⚠️✅'[r.status == 200 ]
+      evt = this.event
+      evt.preventDefault()
+      let r
+      try {
+        r = await fetch("https://c.est.im/", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          body: new URLSearchParams(new FormData(evt.target))
+        })
+        evt.submitter.value = '⚠️✅'[r.status == 200 ]
+      } catch (e) {
+        console.log(e)
+        evt.submitter.value = '❌'
+      }
       return false;
     }
     function ne(tag, attr={}){
