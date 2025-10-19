@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    {% if FAVICON %}<link rel="icon" href="{{ FAVICON }}">{% endif %}
     <title>{% block title %}{{ SITENAME }}{% endblock %}</title>
     {% include "header.html" %}
   </head>

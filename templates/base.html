@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>{% block title %}{{ SITENAME }}{% endblock %}</title>
+    {% if FAVICON %}<link rel="icon" href="{{ FAVICON }}">{% endif %}
     {% include "header.html" %}
   </head>
   <body class="single-body">
